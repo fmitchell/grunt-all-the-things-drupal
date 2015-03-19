@@ -187,17 +187,103 @@
                 </section>
 
                 <section>
-                    <h3>Sprint Sunday 09:00-17:00</h3>
-                    <h3>UIC SCE Tower, Room 605 <small>750 S. Halsted</small></h3>
-                    <h3>http://2015.midcamp.org/schedule</h3>
-                    <h2>Learn through contribution</h2>
-                    <h3>Contributors of all skill sets and levels are welcome and encouraged.</h3>
+                    <section>
+                        <h2>Validate and Check for Errors</h2>
+                    </section>
+
+                    <section>
+                        <img src="gifs/grunt-validate-error.gif" height="575px" />
+                    </section>
+
+                    <section>
+                        <h2>Sniff the code</h2>
+                    </section>
+
+                    <section>
+                        <img src="gifs/grunt-validate.gif" height="575px" />
+                    </section>
                 </section>
 
                 <section>
-                    <h1>Feedback</h1>
-                    <h3>https://joind.in/talk/view/13792</h3>
-                    <h3>Speaker Name: @fredricmitchell</h3>
+                    <section>
+                        <h2>Automation has Power</h2>
+                        <p class="fragment">Makes our site portable, shareable</p>
+                        <p class="fragment">Reviewing VCS history is 'easier'</p>
+                        <p class="fragment">Connect it to other processes</p>
+                    </section>
+                    <section>
+                        <h2>CI: Jenkins</h2>
+                        <img src="https://www.evernote.com/shard/s236/sh/16596755-ad56-4c15-8791-562c90c3468a/976304b1461f88c2653174b2b70d2338/res/8141057e-1c65-4afd-b676-6a36a2ed37b9/skitch.png" height="500px" />
+                    </section>
+                    <section>
+                        <h2>Client-side: SASS, Pattern Lab </h2>
+                        <img src="https://www.evernote.com/shard/s236/sh/404d6089-eb86-4dbb-b45d-6c5098257def/551dabcf141a6c60668d714638aba28f/res/19df4ee2-203c-4595-8d79-7fd626db492a/skitch.png" height="500px" />
+                    </section>
+                    <section>
+                        <h2>Deploy: Pantheon</h2>
+                        <img src="https://www.evernote.com/shard/s236/sh/db590073-b709-4658-b1ab-14dc8d857b98/b109152abce9841eb369423b5cd247ce/res/1fbd2d45-2e55-4eff-88f3-94216c2d2bef/skitch.png" height="500px" />
+                    </section>
+                </section>
+
+                <section>
+                    <h2>Extending Gruntfile.js</h2>
+                    <h3>grunt-shell example</h3>
+                    <p>
+                        <pre>
+                            <code data-trim contenteditable>
+                                // Patternlab, Pantheon shell commands
+grunt.extendConfig({
+    shell: {
+        bower_install: {
+            command: "bower install"
+        },
+        patternlab_build: {
+            command: "cd patternlab; grunt build; php core/builder.php -g"
+        },
+        patternlab_watch: {
+            command: "php patternlab/core/builder.php -gp"
+        },
+        pantheon_clean: {
+            command: [
+                'cd <%= config.buildPaths.pantheon %>',
+                'rm -Rf sites/all/',
+                'rm -Rf profiles/mskcfs'
+            ].join('&&')
+        },
+        pantheon: {
+            command: [
+                'cd <%= config.buildPaths.pantheon %>',
+                'git add -A *',
+                'git commit -m "<%= grunt.option("message") %>"',
+                'git push origin master'
+            ].join('&&')
+        }
+    }
+});
+                            </code>
+                        </pre>
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Questions?</h2>
+                </section>
+
+                <section>
+                    <h3>Sprint Sunday 09:00-17:00</h3>
+                    <h3>UIC SCE Tower, Room 605 <small>750 S. Halsted</small></h3>
+                    <p>http://2015.midcamp.org/schedule</p>
+                    <p>Learn through contribution</p>
+                    <p>Contributors of all skill sets and levels are welcome and encouraged.</p>
+                </section>
+
+                <section>
+                    <h2>Thank You!</h2>
+                    <h3>Slides</h3>
+                    <p>http://bit.ly/dp-grunt</p>
+                    <h3>Feedback</h3>
+                    <p>https://joind.in/talk/view/13792</p>
+                    <h3>@fredricmitchell</h3>
                     <h3>#MidCamp</h3>
                 </section>
 
